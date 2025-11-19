@@ -1,0 +1,40 @@
+{
+  "category": "product",
+  "collection": "products",
+  "displayName": "Products",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Product Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "price",
+      "label": "Price",
+      "type": "number",
+      "required": true
+    },
+    {
+      "name": "currency",
+      "label": "Currency",
+      "type": "text",
+      "default": "INR"
+    },
+    {
+      "name": "stock",
+      "label": "Stock",
+      "type": "number"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "textarea"
+    }
+  ],
+  "theme": {
+    "--primary": "#065f46",
+    "--accent": "#06b6d4",
+    "--bg": "#f9fafb"
+  }
+}

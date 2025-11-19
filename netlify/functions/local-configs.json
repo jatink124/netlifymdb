@@ -1,0 +1,378 @@
+{
+  "blog": {
+    "category": "blog",
+    "collection": "posts",
+    "displayName": "Blog Posts",
+    "fields": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "body",
+        "label": "Body",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "name": "author",
+        "label": "Author",
+        "type": "text"
+      },
+      {
+        "name": "tags",
+        "label": "Tags",
+        "type": "text",
+        "hint": "comma separated"
+      },
+      {
+        "name": "published",
+        "label": "Published",
+        "type": "checkbox"
+      }
+    ],
+    "theme": {
+      "--primary": "#1e40af",
+      "--accent": "#f97316",
+      "--bg": "#ffffff"
+    }
+  },
+  "product": {
+    "category": "product",
+    "collection": "products",
+    "displayName": "Products",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Product Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "price",
+        "label": "Price",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "currency",
+        "label": "Currency",
+        "type": "text",
+        "default": "INR"
+      },
+      {
+        "name": "stock",
+        "label": "Stock",
+        "type": "number"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+      }
+    ],
+    "theme": {
+      "--primary": "#065f46",
+      "--accent": "#06b6d4",
+      "--bg": "#f9fafb"
+    }
+  },
+  "tasks": {
+    "category": "tasks",
+    "collection": "tasks",
+    "displayName": "Tasks / To-Do",
+    "fields": [
+      {
+        "name": "title",
+        "label": "Task",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "dueDate",
+        "label": "Due Date",
+        "type": "date"
+      },
+      {
+        "name": "priority",
+        "label": "Priority",
+        "type": "text",
+        "default": "normal"
+      },
+      {
+        "name": "done",
+        "label": "Done",
+        "type": "checkbox"
+      }
+    ],
+    "theme": {
+      "--primary": "#7c3aed",
+      "--accent": "#f472b6",
+      "--bg": "#ffffff"
+    }
+  },
+  "crm": {
+    "category": "crm",
+    "collection": "contacts",
+    "displayName": "CRM \u2014 Contacts",
+    "fields": [
+      {
+        "name": "firstName",
+        "label": "First Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "lastName",
+        "label": "Last Name",
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "text"
+      },
+      {
+        "name": "phone",
+        "label": "Phone",
+        "type": "text"
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text"
+      },
+      {
+        "name": "notes",
+        "label": "Notes",
+        "type": "textarea"
+      }
+    ],
+    "theme": {
+      "--primary": "#0f172a",
+      "--accent": "#ef4444",
+      "--bg": "#ffffff"
+    }
+  },
+  "recipe": {
+    "category": "recipe",
+    "collection": "recipes",
+    "displayName": "Recipes",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Recipe Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "ingredients",
+        "label": "Ingredients",
+        "type": "textarea",
+        "hint": "one per line"
+      },
+      {
+        "name": "steps",
+        "label": "Steps",
+        "type": "textarea"
+      },
+      {
+        "name": "prepTime",
+        "label": "Prep Time (mins)",
+        "type": "number"
+      },
+      {
+        "name": "servings",
+        "label": "Servings",
+        "type": "number",
+        "default": 1
+      }
+    ],
+    "theme": {
+      "--primary": "#ff6347",
+      "--accent": "#ffb703",
+      "--bg": "#fffaf0"
+    }
+  },
+  "notes": {
+    "category": "notes",
+    "collection": "notes",
+    "displayName": "Notes",
+    "fields": [
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text"
+      },
+      {
+        "name": "content",
+        "label": "Content",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "name": "tags",
+        "label": "Tags",
+        "type": "text",
+        "hint": "comma separated"
+      }
+    ],
+    "theme": {
+      "--primary": "#065f46",
+      "--accent": "#84cc16",
+      "--bg": "#ffffff"
+    }
+  },
+  "clients": {
+    "category": "clients",
+    "collection": "clients",
+    "displayName": "Clients",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Client Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "contact",
+        "label": "Contact Person",
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "text"
+      },
+      {
+        "name": "phone",
+        "label": "Phone",
+        "type": "text"
+      },
+      {
+        "name": "address",
+        "label": "Address",
+        "type": "textarea"
+      }
+    ],
+    "theme": {
+      "--primary": "#0ea5a4",
+      "--accent": "#0891b2",
+      "--bg": "#f8fafc"
+    }
+  },
+  "inventory": {
+    "category": "inventory",
+    "collection": "inventory",
+    "displayName": "Inventory",
+    "fields": [
+      {
+        "name": "sku",
+        "label": "SKU",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "name",
+        "label": "Item Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "qty",
+        "label": "Quantity",
+        "type": "number",
+        "default": 0
+      },
+      {
+        "name": "location",
+        "label": "Location",
+        "type": "text"
+      },
+      {
+        "name": "notes",
+        "label": "Notes",
+        "type": "textarea"
+      }
+    ],
+    "theme": {
+      "--primary": "#065f46",
+      "--accent": "#f59e0b",
+      "--bg": "#ffffff"
+    }
+  },
+  "events": {
+    "category": "events",
+    "collection": "events",
+    "displayName": "Events",
+    "fields": [
+      {
+        "name": "title",
+        "label": "Event Title",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "date",
+        "label": "Date & Time",
+        "type": "datetime-local"
+      },
+      {
+        "name": "location",
+        "label": "Location",
+        "type": "text"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+      }
+    ],
+    "theme": {
+      "--primary": "#2563eb",
+      "--accent": "#06b6d4",
+      "--bg": "#ffffff"
+    }
+  },
+  "leads": {
+    "category": "leads",
+    "collection": "leads",
+    "displayName": "Leads",
+    "fields": [
+      {
+        "name": "name",
+        "label": "Lead Name",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "text"
+      },
+      {
+        "name": "source",
+        "label": "Source",
+        "type": "text"
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "type": "text",
+        "default": "new"
+      },
+      {
+        "name": "value",
+        "label": "Estimated Value",
+        "type": "number"
+      }
+    ],
+    "theme": {
+      "--primary": "#7c3aed",
+      "--accent": "#ef4444",
+      "--bg": "#ffffff"
+    }
+  }
+}

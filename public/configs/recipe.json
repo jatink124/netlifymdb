@@ -1,0 +1,40 @@
+{
+  "category": "recipe",
+  "collection": "recipes",
+  "displayName": "Recipes",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Recipe Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "ingredients",
+      "label": "Ingredients",
+      "type": "textarea",
+      "hint": "one per line"
+    },
+    {
+      "name": "steps",
+      "label": "Steps",
+      "type": "textarea"
+    },
+    {
+      "name": "prepTime",
+      "label": "Prep Time (mins)",
+      "type": "number"
+    },
+    {
+      "name": "servings",
+      "label": "Servings",
+      "type": "number",
+      "default": 1
+    }
+  ],
+  "theme": {
+    "--primary": "#ff6347",
+    "--accent": "#ffb703",
+    "--bg": "#fffaf0"
+  }
+}

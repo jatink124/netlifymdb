@@ -1,0 +1,33 @@
+{
+  "category": "events",
+  "collection": "events",
+  "displayName": "Events",
+  "fields": [
+    {
+      "name": "title",
+      "label": "Event Title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "date",
+      "label": "Date & Time",
+      "type": "datetime-local"
+    },
+    {
+      "name": "location",
+      "label": "Location",
+      "type": "text"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "textarea"
+    }
+  ],
+  "theme": {
+    "--primary": "#2563eb",
+    "--accent": "#06b6d4",
+    "--bg": "#ffffff"
+  }
+}

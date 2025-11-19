@@ -1,0 +1,99 @@
+{
+  "blog": {
+    "collection": "posts",
+    "fields": [
+      "title",
+      "body",
+      "author",
+      "tags",
+      "published"
+    ]
+  },
+  "product": {
+    "collection": "products",
+    "fields": [
+      "name",
+      "price",
+      "currency",
+      "stock",
+      "description"
+    ]
+  },
+  "tasks": {
+    "collection": "tasks",
+    "fields": [
+      "title",
+      "dueDate",
+      "priority",
+      "done"
+    ]
+  },
+  "crm": {
+    "collection": "contacts",
+    "fields": [
+      "firstName",
+      "lastName",
+      "email",
+      "phone",
+      "company",
+      "notes"
+    ]
+  },
+  "recipe": {
+    "collection": "recipes",
+    "fields": [
+      "name",
+      "ingredients",
+      "steps",
+      "prepTime",
+      "servings"
+    ]
+  },
+  "notes": {
+    "collection": "notes",
+    "fields": [
+      "title",
+      "content",
+      "tags"
+    ]
+  },
+  "clients": {
+    "collection": "clients",
+    "fields": [
+      "name",
+      "contact",
+      "email",
+      "phone",
+      "address"
+    ]
+  },
+  "inventory": {
+    "collection": "inventory",
+    "fields": [
+      "sku",
+      "name",
+      "qty",
+      "location",
+      "notes"
+    ]
+  },
+  "events": {
+    "collection": "events",
+    "fields": [
+      "title",
+      "date",
+      "location",
+      "description"
+    ]
+  },
+  "leads": {
+    "collection": "leads",
+    "fields": [
+      "name",
+      "email",
+      "source",
+      "status",
+      "value"
+    ]
+  }
+}

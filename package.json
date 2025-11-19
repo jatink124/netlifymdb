@@ -1,0 +1,8 @@
+{
+  "name": "netlify-mongodb-builder",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "mongodb": "^5.9.0"
+  }
+}

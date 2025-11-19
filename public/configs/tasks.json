@@ -1,0 +1,34 @@
+{
+  "category": "tasks",
+  "collection": "tasks",
+  "displayName": "Tasks / To-Do",
+  "fields": [
+    {
+      "name": "title",
+      "label": "Task",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "dueDate",
+      "label": "Due Date",
+      "type": "date"
+    },
+    {
+      "name": "priority",
+      "label": "Priority",
+      "type": "text",
+      "default": "normal"
+    },
+    {
+      "name": "done",
+      "label": "Done",
+      "type": "checkbox"
+    }
+  ],
+  "theme": {
+    "--primary": "#7c3aed",
+    "--accent": "#f472b6",
+    "--bg": "#ffffff"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "category": "leads",
+  "collection": "leads",
+  "displayName": "Leads",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Lead Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "label": "Source",
+      "type": "text"
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "text",
+      "default": "new"
+    },
+    {
+      "name": "value",
+      "label": "Estimated Value",
+      "type": "number"
+    }
+  ],
+  "theme": {
+    "--primary": "#7c3aed",
+    "--accent": "#ef4444",
+    "--bg": "#ffffff"
+  }
+}

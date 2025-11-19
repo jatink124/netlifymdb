@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dynamic Config App</title>
+<style>
+  :root { --primary: #1e40af; --accent: #f97316; --bg: #ffffff; }
+  body { font-family: system-ui, sans-serif; background: var(--bg); color: #111; padding: 20px; max-width: 900px; margin:auto; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .form-row { margin-bottom:10px; }
+  input, textarea, button, select { padding:8px; font-size:15px; }
+  button { cursor:pointer; }
+  ul { padding-left: 20px; }
+  small { color:#666; }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">Loading…</h1>
+  <div id="meta"></div>
+</header>
+
+<div id="app">
+  <div id="formWrap"></div>
+  <div style="margin-top:8px;">
+    <button id="saveBtn">Save</button>
+    <button id="refreshBtn">Refresh</button>
+  </div>
+
+  <div id="status" style="margin-top:10px;"></div>
+
+  <div style="margin-top:20px;">
+    <h2 id="listTitle"></h2>
+    <ul id="items"></ul>
+  </div>
+</div>
+
+<script>
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const category = params.get('c') || 'blog';
+  const CONFIG_FN = '/.netlify/functions/config-proxy?category=' + encodeURIComponent(category);
+  const FN_URL = '/.netlify/functions/mongo-proxy?category=' + encodeURIComponent(category);
+
+  const titleEl = document.getElementById('title');
+  const statusEl = document.getElementById('status');
+  const formWrap = document.getElementById('formWrap');
+
+  function setStatus(msg){ statusEl.textContent = msg; }
+
+  // fetch config from function
+  let cfg;
+  try {
+    const res = await fetch(CONFIG_FN);
+    if (!res.ok) throw new Error('Config not found');
+    const j = await res.json();
+    cfg = j.config;
+  } catch (e) {
+    titleEl.textContent = 'Config not found: ' + category;
+    setStatus(e.message);
+    return;
+  }
+
+  // apply theme
+  if (cfg.theme) {
+    Object.keys(cfg.theme).forEach(k => document.documentElement.style.setProperty(k, cfg.theme[k]));
+  }
+  titleEl.textContent = cfg.displayName || cfg.category;
+
+  // build form
+  formWrap.innerHTML = '';
+  const form = document.createElement('form');
+  form.id = 'dynamicForm';
+  cfg.fields.forEach(f => {
+    const row = document.createElement('div');
+    row.className = 'form-row';
+    const label = document.createElement('label');
+    label.textContent = f.label || f.name;
+    let input;
+    if (f.type === 'textarea') input = document.createElement('textarea');
+    else if (f.type === 'checkbox') { input = document.createElement('input'); input.type = 'checkbox'; }
+    else input = document.createElement('input'), input.type = (f.type==='number'?'number':'text');
+    input.name = f.name;
+    if (f.required) input.required = true;
+    row.appendChild(label);
+    row.appendChild(document.createElement('br'));
+    row.appendChild(input);
+    form.appendChild(row);
+  });
+  formWrap.appendChild(form);
+
+  document.getElementById('saveBtn').addEventListener('click', async () => {
+    const data = {};
+    cfg.fields.forEach(f => {
+      const el = form.elements[f.name];
+      if (!el) return;
+      if (f.type === 'checkbox') data[f.name] = el.checked;
+      else if (f.type === 'number') data[f.name] = parseFloat(el.value) || 0;
+      else data[f.name] = el.value;
+    });
+    setStatus('Saving...');
+    try {
+      const res = await fetch(FN_URL, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Save failed');
+      setStatus('Saved ✓');
+      loadList();
+    } catch (e) { setStatus('Error: '+e.message); }
+  });
+
+  document.getElementById('refreshBtn').addEventListener('click', loadList);
+
+  async function loadList() {
+    setStatus('Loading…');
+    try {
+      const res = await fetch(FN_URL);
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Load failed');
+      const items = json.items || [];
+      document.getElementById('listTitle').textContent = (cfg.displayName||cfg.category) + ' (' + items.length + ')';
+      const ul = document.getElementById('items');
+      ul.innerHTML = '';
+      items.forEach(it => {
+        const li = document.createElement('li');
+        const preview = cfg.fields.slice(0,2).map(f => `${f.label||f.name}: ${escapeHtml(String(it[f.name]||''))}`).join(' | ');
+        li.innerHTML = `<strong>${escapeHtml(it._id?.toString?.()||'')}</strong> — ${preview}`;
+        ul.appendChild(li);
+      });
+      setStatus('Loaded '+items.length);
+    } catch (e) { setStatus('Error: '+e.message); }
+  }
+
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+  loadList();
+})();
+</script>
+</body>
+</html>

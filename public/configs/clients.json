@@ -1,0 +1,38 @@
+{
+  "category": "clients",
+  "collection": "clients",
+  "displayName": "Clients",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Client Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "contact",
+      "label": "Contact Person",
+      "type": "text"
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "text"
+    },
+    {
+      "name": "phone",
+      "label": "Phone",
+      "type": "text"
+    },
+    {
+      "name": "address",
+      "label": "Address",
+      "type": "textarea"
+    }
+  ],
+  "theme": {
+    "--primary": "#0ea5a4",
+    "--accent": "#0891b2",
+    "--bg": "#f8fafc"
+  }
+}

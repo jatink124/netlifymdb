@@ -1,0 +1,40 @@
+{
+  "category": "blog",
+  "collection": "posts",
+  "displayName": "Blog Posts",
+  "fields": [
+    {
+      "name": "title",
+      "label": "Title",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "body",
+      "label": "Body",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "name": "author",
+      "label": "Author",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "label": "Tags",
+      "type": "text",
+      "hint": "comma separated"
+    },
+    {
+      "name": "published",
+      "label": "Published",
+      "type": "checkbox"
+    }
+  ],
+  "theme": {
+    "--primary": "#1e40af",
+    "--accent": "#f97316",
+    "--bg": "#ffffff"
+  }
+}

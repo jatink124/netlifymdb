@@ -1,0 +1,43 @@
+{
+  "category": "crm",
+  "collection": "contacts",
+  "displayName": "CRM \u2014 Contacts",
+  "fields": [
+    {
+      "name": "firstName",
+      "label": "First Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "type": "text"
+    },
+    {
+      "name": "email",
+      "label": "Email",
+      "type": "text"
+    },
+    {
+      "name": "phone",
+      "label": "Phone",
+      "type": "text"
+    },
+    {
+      "name": "company",
+      "label": "Company",
+      "type": "text"
+    },
+    {
+      "name": "notes",
+      "label": "Notes",
+      "type": "textarea"
+    }
+  ],
+  "theme": {
+    "--primary": "#0f172a",
+    "--accent": "#ef4444",
+    "--bg": "#ffffff"
+  }
+}

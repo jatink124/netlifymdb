@@ -1,0 +1,40 @@
+{
+  "category": "inventory",
+  "collection": "inventory",
+  "displayName": "Inventory",
+  "fields": [
+    {
+      "name": "sku",
+      "label": "SKU",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "name",
+      "label": "Item Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "qty",
+      "label": "Quantity",
+      "type": "number",
+      "default": 0
+    },
+    {
+      "name": "location",
+      "label": "Location",
+      "type": "text"
+    },
+    {
+      "name": "notes",
+      "label": "Notes",
+      "type": "textarea"
+    }
+  ],
+  "theme": {
+    "--primary": "#065f46",
+    "--accent": "#f59e0b",
+    "--bg": "#ffffff"
+  }
+}

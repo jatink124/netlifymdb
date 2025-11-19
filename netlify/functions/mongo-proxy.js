@@ -4,14 +4,27 @@ const path = require('path');
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = process.env.MONGODB_DB || 'test';
+// --- START PATCH ---
 const LOCAL_CATEGORIES_PATH = path.join(__dirname, 'categories.json');
 
-// load local categories map
+// try to read server-side categories.json first (kept for manual whitelist)
 let LOCAL_CATEGORIES = {};
 try {
   LOCAL_CATEGORIES = JSON.parse(fs.readFileSync(LOCAL_CATEGORIES_PATH, 'utf8'));
 } catch (e) {
-  console.warn('Could not read local categories.json:', e.message);
+  // fallback: if categories.json not present, use bundled local-configs.json
+  try {
+    // local-configs.json contains full configs keyed by category
+    const bundled = require('./local-configs.json');
+    // convert bundled config to categories map { category: { collection, fields } }
+    for (const k of Object.keys(bundled)) {
+      const c = bundled[k];
+      LOCAL_CATEGORIES[k] = { collection: c.collection, fields: (c.fields || []).map(f => f.name) };
+    }
+    console.warn('categories.json not found — using bundled local-configs.json fallback');
+  } catch (err2) {
+    console.warn('Could not load local-configs.json fallback:', err2.message);
+  }
 }
 
 let cachedClient = global._mongoClient || null;
